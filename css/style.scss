@@ -1,0 +1,128 @@
+/* Body Background Variables */
+
+$defaultBackground: #2c3e50;
+$onClickBackground: #2980b9;
+
+/* Table Variables */
+
+$tableWidth:280px;
+$tableHeight:10px;
+$tableBackgroundColor:#8b4513;
+
+/* Candle Variables */
+
+$candleWidth:35px;
+$candleHeight:130px;
+$candleBorderColor:#673c63;
+$stickWidth:3px;
+$stickHeight:15px;
+
+/* Flame Variables */
+$flameWidth:16px;
+$flameHeight:20px;
+$flameColor1:#e25822;
+$flameColor2:#e2b822;
+
+* {
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+.wrapper {
+    background-color:$defaultBackground;
+    width:100%;
+    height:100vh;
+    transition: background-color 0.6s ease;
+}
+
+.table {
+    width: $tableWidth;
+    height:$tableHeight;
+    background-color:$tableBackgroundColor;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 5px #111;
+    z-index:2;
+}
+
+.candle {
+        background-color: #fff;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-100%);
+        transform-origin: center right;
+        position: absolute;
+        width:$candleWidth;
+        height:$candleHeight;
+        border: 2px solid $candleBorderColor;
+        box-shadow: -2px 0px 0px #95c6f2 inset;
+        .candle-stick {
+        width:$stickWidth;
+        height:$stickHeight;
+        background-color:$candleBorderColor;
+        position:absolute;
+        left:50%;
+        top:0%;
+        transform: translate(-50%, -100%);
+        border-radius: 8px;
+    }
+}
+
+.visually-hidden {
+    position:absolute;
+    left: -100%;
+}
+
+label {
+    background-color: #f1c40f;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    transform: translate(50%, 50%);
+    cursor:pointer;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+
+input:checked + label {
+    outline: 3px solid #2980b9
+}
+
+#toggle:checked ~ .wrapper {
+    background-color:$onClickBackground;
+    .flame {
+        opacity: 1;
+    }
+}
+
+.flame {
+    position: absolute;
+    width:$flameWidth;
+    height:$flameHeight;
+    background-color:$flameColor1;
+    left:50%;
+    top:0;
+    transform: translate(-50%, -100%);
+    border-radius:50% 50% 50% 50% / 60% 60% 40% 40% ;
+    animation: fire-flicker .2s infinite linear;
+    opacity:0;
+transition: opacity .6s linear;
+}
+
+
+@keyframes fire-flicker {
+from {
+    background-color: $flameColor1;
+    left:47%;
+}
+to {
+    background-color: $flameColor2;
+    left:53%;
+}
+}
+
