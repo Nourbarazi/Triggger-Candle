@@ -7,9 +7,9 @@ I learned in this Animation more tricks about Css Drawing from [Paul Ryan on sit
 
 #### Candle Smoke Off
 
-![Off](screen/off.png)
+![Off](screenshot/off.png)
 
 
 #### Burning Candle
 
-![On](screen/on.png)
+![On](screenshot/on.png)
